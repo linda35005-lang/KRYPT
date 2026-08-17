@@ -1,0 +1,6 @@
+{
+  "name": "GhostText - E2EE & Ephemeral Messenger",
+  "description": "Secure end-to-end encrypted messaging application with cryptographic ephemeral timers, view-once media, zero-knowledge room relay, safety number verification, and self-destruct capabilities.",
+  "requestFramePermissions": ["microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

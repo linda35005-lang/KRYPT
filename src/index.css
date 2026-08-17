@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+:root,
+[data-theme="stealth-dark"] {
+  --bg-primary: #0A0A0A;
+  --bg-surface: #0F0F0F;
+  --bg-elevated: #141414;
+  --bg-card: #0A0A0A;
+  --border-color: rgba(255, 255, 255, 0.12);
+  --border-active: rgba(255, 255, 255, 0.4);
+  --text-primary: #FFFFFF;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+  --accent: #22C55E;
+  --accent-glow: rgba(34, 197, 94, 0.5);
+  --accent-bg: rgba(34, 197, 94, 0.15);
+  --accent-text: #4ADE80;
+  --bubble-outgoing: #FFFFFF;
+  --bubble-outgoing-text: #000000;
+  --bubble-incoming: #141414;
+  --bubble-incoming-text: #FFFFFF;
+  --button-primary-bg: #FFFFFF;
+  --button-primary-text: #000000;
+}
+
+[data-theme="terminal-green"] {
+  --bg-primary: #020A04;
+  --bg-surface: #051408;
+  --bg-elevated: #08210D;
+  --bg-card: #030D05;
+  --border-color: rgba(0, 255, 102, 0.25);
+  --border-active: rgba(0, 255, 102, 0.7);
+  --text-primary: #00FF66;
+  --text-secondary: #4ADE80;
+  --text-muted: #166534;
+  --accent: #00FF66;
+  --accent-glow: rgba(0, 255, 102, 0.6);
+  --accent-bg: rgba(0, 255, 102, 0.18);
+  --accent-text: #00FF66;
+  --bubble-outgoing: #00FF66;
+  --bubble-outgoing-text: #020A04;
+  --bubble-incoming: #08210D;
+  --bubble-incoming-text: #00FF66;
+  --button-primary-bg: #00FF66;
+  --button-primary-text: #020A04;
+}
+
+[data-theme="monochrome"] {
+  --bg-primary: #000000;
+  --bg-surface: #000000;
+  --bg-elevated: #111111;
+  --bg-card: #000000;
+  --border-color: #FFFFFF;
+  --border-active: #FFFFFF;
+  --text-primary: #FFFFFF;
+  --text-secondary: #E4E4E7;
+  --text-muted: #A1A1AA;
+  --accent: #FFFFFF;
+  --accent-glow: rgba(255, 255, 255, 0.8);
+  --accent-bg: rgba(255, 255, 255, 0.2);
+  --accent-text: #FFFFFF;
+  --bubble-outgoing: #FFFFFF;
+  --bubble-outgoing-text: #000000;
+  --bubble-incoming: #000000;
+  --bubble-incoming-text: #FFFFFF;
+  --button-primary-bg: #FFFFFF;
+  --button-primary-text: #000000;
+}
+
+[data-theme="amber-crt"] {
+  --bg-primary: #0A0600;
+  --bg-surface: #140C00;
+  --bg-elevated: #1F1402;
+  --bg-card: #0E0800;
+  --border-color: rgba(255, 176, 0, 0.25);
+  --border-active: rgba(255, 176, 0, 0.7);
+  --text-primary: #FFB000;
+  --text-secondary: #FBBF24;
+  --text-muted: #92400E;
+  --accent: #FFB000;
+  --accent-glow: rgba(255, 176, 0, 0.6);
+  --accent-bg: rgba(255, 176, 0, 0.18);
+  --accent-text: #FFB000;
+  --bubble-outgoing: #FFB000;
+  --bubble-outgoing-text: #0A0600;
+  --bubble-incoming: #1F1402;
+  --bubble-incoming-text: #FFB000;
+  --button-primary-bg: #FFB000;
+  --button-primary-text: #0A0600;
+}
+
+[data-theme="cyber-cyan"] {
+  --bg-primary: #030712;
+  --bg-surface: #081226;
+  --bg-elevated: #0C1A38;
+  --bg-card: #040A1A;
+  --border-color: rgba(0, 240, 255, 0.25);
+  --border-active: rgba(0, 240, 255, 0.7);
+  --text-primary: #00F0FF;
+  --text-secondary: #38BDF8;
+  --text-muted: #075985;
+  --accent: #00F0FF;
+  --accent-glow: rgba(0, 240, 255, 0.6);
+  --accent-bg: rgba(0, 240, 255, 0.18);
+  --accent-text: #00F0FF;
+  --bubble-outgoing: #00F0FF;
+  --bubble-outgoing-text: #030712;
+  --bubble-incoming: #0C1A38;
+  --bubble-incoming-text: #00F0FF;
+  --button-primary-bg: #00F0FF;
+  --button-primary-text: #030712;
+}
+
+@layer base {
+  body {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary, #0A0A0A);
+    color: var(--text-primary, #FFFFFF);
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color, #262626) var(--bg-primary, #0A0A0A);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary, #0A0A0A);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color, #27272a);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-active, #3f3f46);
+}
+
+/* Optional CRT Scanlines Effect */
+.scanlines-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.04),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.04)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--accent-glow, rgba(34, 197, 94, 0.4));
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-glow, rgba(34, 197, 94, 0.8));
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.theme-glow {
+  box-shadow: 0 0 14px var(--accent-glow, rgba(34, 197, 94, 0.5));
+}
+
+.glow-green {
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+}
+
+.glow-red {
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
